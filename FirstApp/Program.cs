@@ -6,20 +6,47 @@ namespace FirstApp
     {
         static void Main(string[] args)
         {
-            const string MyName = "Alexey";
-            const byte MyAge = 46;
-            const bool IsHavePet = true;
-            const double ShoeSize = 43.5;
-            MainClass LovelyDay = new MainClass();
+            //const string MyName = "Alexey";
+            //const byte MyAge = 46;
+            //const bool IsHavePet = true;
+            //const double ShoeSize = 43.5;
+            //MainClass LovelyDay = new MainClass();
             //const float ShoeSize = 43.5f; или так чтобы программа ела чуть меньше памяти
-            Console.WriteLine("My name is {0}\n"+
-                              "My age is {1}\n"+
-                              "Do I have a pet? {2}\n" +
-                              "My shoe size is {3}\n"+
-                              "My lovely day is {4}",
-                              MyName, MyAge, IsHavePet, ShoeSize, LovelyDay.LovelyDayOfWeek(5));
-            LovelyDay = null; 
-            Console.ReadKey();
+            //Console.WriteLine("My name is {0}\n"+
+            //                  "My age is {1}\n"+
+            //                  "Do I have a pet? {2}\n" +
+            //                  "My shoe size is {3}\n"+
+            //                  "My lovely day is {4}",
+            //                  MyName, MyAge, IsHavePet, ShoeSize, LovelyDay.LovelyDayOfWeek(5));
+            //Console.WriteLine("{0}\n {1}\n {2}\n", MyName, MyAge, ShoeSize);
+            //string str = Console.ReadLine();
+            //LovelyDay = null;
+
+            Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
+
+            switch (Console.ReadLine())
+            {
+                case "red":
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.WriteLine("Your color is red!");
+                    break;
+
+                case "green":
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.WriteLine("Your color is green!");
+                    break;
+
+                default:
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    Console.WriteLine("Your color is cyan!");
+                    break;
+            }
         }
     }
 }
