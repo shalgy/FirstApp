@@ -24,28 +24,29 @@ namespace FirstApp
 
             Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
 
-            switch (Console.ReadLine())
+            var color = Console.ReadLine();
+
+            if (color == "red")
             {
-                case "red":
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Black;
 
-                    Console.WriteLine("Your color is red!");
-                    break;
+                Console.WriteLine("Your color is red!");
+            }
 
-                case "green":
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.ForegroundColor = ConsoleColor.Black;
+            else if (color == "green")
+            {
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.Black;
 
-                    Console.WriteLine("Your color is green!");
-                    break;
+                Console.WriteLine("Your color is green!");
+            }
+            else
+            {
+                Console.BackgroundColor = ConsoleColor.Cyan;
+                Console.ForegroundColor = ConsoleColor.Black;
 
-                default:
-                    Console.BackgroundColor = ConsoleColor.Yellow;
-                    Console.ForegroundColor = ConsoleColor.Red;
-
-                    Console.WriteLine("Your color is cyan!");
-                    break;
+                Console.WriteLine("Your color is cyan!");
             }
         }
     }
