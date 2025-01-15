@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Principal;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FirstApp
 {
@@ -106,21 +107,123 @@ namespace FirstApp
             //    }
             //    t++;
             //} while (t < 2);
-            Console.WriteLine("Введите Ваше имя:");
-            string myname = Console.ReadLine();
-            Console.WriteLine("Ваше имя по буквам: ");
-            foreach (var chr in myname) {
-                Console.Write(chr + " ");
-            }
-            Console.WriteLine("Последняя буква вашего имени: {0}", myname[myname.Length - 1] );
-            Console.WriteLine("Ваше имя в обратном порядке");
-            int i = 0;
-            for (i = myname.Length - 1; i != 0; i-- )
+
+            //Вывод имени по буквам и в обратном порядке
+            //Console.WriteLine("Введите Ваше имя:");
+            //string myname = Console.ReadLine();
+            //Console.WriteLine("Ваше имя по буквам: ");
+            //foreach (var chr in myname) {
+            //    Console.Write(chr + " ");
+            //}
+            //Console.WriteLine("Последняя буква вашего имени: {0}", myname[myname.Length - 1] );
+            //Console.WriteLine("Ваше имя в обратном порядке");
+            //int i = 0;
+            //for (i = myname.Length - 1; i != 0; i-- )
+            //{
+            //    Console.Write(myname[i]);
+            //}
+            //Console.WriteLine(myname[i]);
+            //Console.ReadKey();
+
+            //Сортировка массива (не выполнил самостоятельно смотрел подсказку)
+            //var arr = new int[] { 5, 6, 9, 1, 2, 3, 4 };
+
+            //int temp;
+
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    for (int j = i + 1; j < arr.Length; j++)
+            //    {
+            //        if (arr[i] > arr[j])
+            //        {
+            //            temp = arr[i];
+            //            arr[i] = arr[j];
+            //            arr[j] = temp;
+            //        }
+            //    }
+            //}
+
+            //foreach (var item in arr)
+            //{
+            //    Console.Write(item);
+            //}
+
+            //Суммирование всех элементов массива
+            //var arr = new int[] { 5, 6, 9, 1, 2, 3, 4 };
+            //int val = 0;
+            //for (int i = 0; i < arr.GetUpperBound(0) + 1; i++)
+            //{
+            //    val += arr[i];
+            //}
+            //Console.WriteLine(val);
+
+            //Вывод в строку всех элементов массива массивов
+            //int[][] array = new int[3][];
+            //array[0] = new int[2] { 1, 2 };
+            //array[1] = new int[3] { 1, 2, 3 };
+            //array[2] = new int[5] { 1, 2, 3, 4, 5 };
+
+            //foreach (var aritem in array)
+            //{
+            //    foreach (var item in aritem)
+            //    {
+            //        Console.Write(item + " ");
+            //    }
+            //}
+
+            //Задание 4.3.15 на суммирование всех положительных чисел в массиве
+            //var arr = new int[] { 5, 6, 9, 1, 2, 3, 4, -3, -8, 15, 12 ,-1, 51 };
+            //int val = 0;
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    if (arr[i] >= 0) { val += arr[i]; }
+            //}
+            //Console.WriteLine("Сумма положительных чисел в массиве равна: {0}",val);
+
+            //Задание 4.3.16
+            //int[,] arr = { { -5, 6, 9, 1, 2, -3 }, { -8, 8, 1, 1, 2, -3 } };
+            //int sum = 0;
+            //foreach (int i in arr)
+            //{
+            //    if (i >= 0) { sum += i; }
+            //}
+            //Console.WriteLine("Сумма положительных чисел в массиве равна: {0}", sum);
+
+            //Задание 4.3.17
+            int[,] arr = { { -5, 6, 9, 1, 2, -3 }, { -8, 8, 1, 1, 2, -3 } };
+            int temp;
+
+            for (int i = 0; i < arr.GetUpperBound(0) + 1; i++)
             {
-                Console.Write(myname[i]);
+                for (int j = 0; j < arr.GetUpperBound(1) + 1; j++)
+                    Console.Write(arr[i, j] + " ");
+                Console.WriteLine();
             }
-            Console.WriteLine(myname[i]);
-            Console.ReadKey();
+
+
+            //Console.WriteLine("Количество элементов {0} измерения массива = {1}, наибольший индекс измерения {0} = {2}", k, arr.GetLength(k), arr.GetUpperBound(k));
+            for (int i = 0; i <= arr.GetUpperBound(0); i++)
+            {
+                for (int j = 0; j <= arr.GetUpperBound(1); j++)
+                { 
+                    for (int k = j + 1; k <= arr.GetUpperBound(1); k++)
+                    {
+                        if (arr[i, j] > arr[i, k])
+                        {
+                            temp = arr[i, k];
+                            arr[i, k] = arr[i, j];
+                            arr[i, j] = temp;
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < arr.GetUpperBound(0) + 1; i++)
+            {
+                for (int j = 0; j < arr.GetUpperBound(1) + 1; j++)
+                    Console.Write(arr[i, j] + " ");
+                Console.WriteLine();
+            }
+
         }
     }
 }
