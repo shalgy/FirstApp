@@ -6,23 +6,70 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FirstApp
 {
+    
     class Program
     {
+        //Задание 5.1.5
+        static string ShowColor()
+        {
+            Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
+            var color = Console.ReadLine();
+
+            switch (color)
+            {
+                case "red":
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.WriteLine("Your color is red!");
+                    break;
+
+                case "green":
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.WriteLine("Your color is green!");
+                    break;
+                case "cyan":
+                    Console.BackgroundColor = ConsoleColor.Cyan;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.WriteLine("Your color is cyan!");
+                    break;
+                default:
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    Console.WriteLine("Your color is yellow!");
+                    break;
+            }
+            return color;
+        }
+
         static void Main(string[] args)
         {
-            // Модуль 5. Задание 1
-            // Создайте кортеж User, содержащий имя пользователя Name и массив с текстовой информацией о его пяти любимых блюдах Dishes.
-            // Заполните имя пользователя через ввод в консоль, а информацию о блюдах — в цикле через консоль.
-        (string Name, string[] Dishes) User;
+            var (name, age) = ("Евгения", 27);
+            string[] favcolors= new string[3];
 
-            Console.WriteLine("Введите имя");
-            User.Name = Console.ReadLine();
-            Console.WriteLine("Укажите пять любимых блюд, например: жаркое из баранины, нажмимайте Enter после ввода каждого блюда");
-            User.Dishes = new string[5];
-             for (int i = 0; i < User.Dishes.Length; i++)
-                { 
-                    User.Dishes[i] = Console.ReadLine();
-                }
+            //Console.WriteLine("Мое имя: {0}", name);
+            //Console.WriteLine("Мой возраст: {0}", age);
+
+            //Console.Write("Введите имя: ");
+            //name = Console.ReadLine();
+            //Console.Write("Введите возрас с цифрами:");
+            //age = Convert.ToInt32(Console.ReadLine());
+
+            //Console.WriteLine("Ваше имя: {0}", name);
+            //Console.WriteLine("Ваш возраст: {0}", age);
+
+            for (int i = 0; i < favcolors.Length; i++)
+            {
+                favcolors[i] = ShowColor();
+            }
+            foreach (var fav in favcolors)
+            {
+                Console.WriteLine(fav);
+            }
         }
     }
 }
