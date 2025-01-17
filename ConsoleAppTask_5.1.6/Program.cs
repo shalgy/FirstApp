@@ -44,7 +44,7 @@ namespace ConsoleAppTask_5._1._6
         {
             var result = new int[num];
 
-            for (int i = 0; i < result.Length; i++)
+            for (int i = 0; i < num; i++)
             {
                 Console.WriteLine("Введите элемент массива номер {0}", i + 1);
                 result[i] = int.Parse(Console.ReadLine());
@@ -52,16 +52,17 @@ namespace ConsoleAppTask_5._1._6
 
             return result;
         }
-
         static void SortArray(in int[] array, out int[] sortedasc, out int[] sorteddesc)
         {
             sortedasc = SortArrayAsc(array);
             sorteddesc= SortArrayDesc(array);
         }
-        static int[] SortArrayAsc(int[] arrayforsort)
+        static int[] SortArrayAsc(in int[] arrayforsort)
         {
-            var result = arrayforsort;
+            var result = new int[arrayforsort.Length];
+            Array.Copy(arrayforsort, result, arrayforsort.Length);
             int temp;
+
             for (int i = 0; i < result.Length; i++)
             {
                 for (int j = i + 1; j < result.Length; j++)
@@ -76,11 +77,13 @@ namespace ConsoleAppTask_5._1._6
             }
             return result;
         }
-        static int[] SortArrayDesc(int[] arrayforsort)
+        static int[] SortArrayDesc(in int[] arrayforsort)
         {
-            var result = arrayforsort;
+            var result = new int[arrayforsort.Length];
+            Array.Copy(arrayforsort, result, arrayforsort.Length);
             int temp;
-            for (int i = 0; i < result.Length-1; i++)
+
+            for (int i = 0; i < result.Length; i++)
             {
                 for (int j = i + 1; j < result.Length; j++)
                 {
@@ -94,28 +97,27 @@ namespace ConsoleAppTask_5._1._6
             }
             return result;
         }
-
         static void Main(string[] args)
         {
-            var array = new int[0];
             int num = 6;
+            var array = new int[num];
             array = GetArrayFromConsole(ref num);
             SortArray(array,out int[] sortedasc, out int[]sorteddesc);
             ShowArray(true, sortedasc, sorteddesc);
             Console.ReadKey();
-
         }
         static void ShowArray(bool Sorting = false, params int[][] array)
         {
-            //int[] temp = array;
-            //if (Sorting)
-            //{
-            //    temp = SortArray(array);
-            //}
-            foreach (var item in array)
+            int i = 0;
+            do
             {
-                Console.Write(item + " ");
-            }
+                foreach (var item in array[i])
+                {
+                    Console.Write(item + " ");
+                }
+                Console.Write("\n");
+                i++;
+            } while (i < array.Length);
         }
 
             //static void SortComplexArray(int[,] arr)
