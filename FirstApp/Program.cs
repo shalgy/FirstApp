@@ -9,10 +9,10 @@ namespace FirstApp
     
     class Program
     {
-        //Задание 5.1.5
-        static string ShowColor()
+        //Задание 5.2.7
+        static string ShowColor(string username, int userage)
         {
-            Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
+            Console.WriteLine("{0}, {1} лет\nнапишите свой любимый цвет на английском с маленькой буквы", username, userage);
             var color = Console.ReadLine();
 
             switch (color)
@@ -48,27 +48,37 @@ namespace FirstApp
 
         static void Main(string[] args)
         {
-            var (name, age) = ("Евгения", 27);
             string[] favcolors= new string[3];
 
-            //Console.WriteLine("Мое имя: {0}", name);
-            //Console.WriteLine("Мой возраст: {0}", age);
+            var (name, age) =("Евгения", 27);
 
-            //Console.Write("Введите имя: ");
-            //name = Console.ReadLine();
-            //Console.Write("Введите возрас с цифрами:");
-            //age = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Мое имя: {0}", name);
+            Console.WriteLine("Мой возраст: {0}", age);
 
-            //Console.WriteLine("Ваше имя: {0}", name);
-            //Console.WriteLine("Ваш возраст: {0}", age);
+            Console.Write("Введите имя: ");
+            name = Console.ReadLine();
+            Console.Write("Введите возраст с цифрами: ");
+            age = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Ваше имя: {0}", name);
+            Console.WriteLine("Ваш возраст: {0}", age);
 
             for (int i = 0; i < favcolors.Length; i++)
             {
-                favcolors[i] = ShowColor();
+                favcolors[i] = ShowColor(name, age);
             }
-            foreach (var fav in favcolors)
+            //ShowColors(favcolors[0], favcolors[2]);
+            ShowColors();
+
+            Console.ReadKey();
+        }
+
+        static void ShowColors(string username="Jane", params string[] favcolors)
+        {
+            Console.WriteLine("{0}, ваши любимые цвета:",username);
+            foreach (var color in favcolors)
             {
-                Console.WriteLine(fav);
+                Console.WriteLine(color);
             }
         }
     }
