@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstApp", "FirstApp\FirstA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTask_5.1.6", "ConsoleAppTask_5.1.6\ConsoleAppTask_5.1.6.csproj", "{D0F99484-B07F-49E4-B8B6-6AA6B364F642}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SF_Module_5_4", "SF_Module_5_4\SF_Module_5_4.csproj", "{D75270EF-8DF9-42EE-BD00-097AB0CAA2C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D0F99484-B07F-49E4-B8B6-6AA6B364F642}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0F99484-B07F-49E4-B8B6-6AA6B364F642}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0F99484-B07F-49E4-B8B6-6AA6B364F642}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D75270EF-8DF9-42EE-BD00-097AB0CAA2C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D75270EF-8DF9-42EE-BD00-097AB0CAA2C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D75270EF-8DF9-42EE-BD00-097AB0CAA2C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D75270EF-8DF9-42EE-BD00-097AB0CAA2C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
