@@ -39,57 +39,71 @@ namespace ConsoleAppTask_5._1._6
         //    return Age;
         //}
 
-        //Задание 5.2.18
-        static int[] GetArrayFromConsole(int num = 5)
-        {
-            var result = new int[num];
+        //Задание 5.3.8
+        //static int[] GetArrayFromConsole(ref int num)
+        //{
+        //    var result = new int[num];
 
-            for (int i = 0; i < result.Length; i++)
-            {
-                Console.WriteLine("Введите элемент массива номер {0}", i + 1);
-                result[i] = int.Parse(Console.ReadLine());
-            }
+        //    for (int i = 0; i < result.Length; i++)
+        //    {
+        //        Console.WriteLine("Введите элемент массива номер {0}", i + 1);
+        //        result[i] = int.Parse(Console.ReadLine());
+        //    }
 
-            return result;
-        }
-        static int[] SortArray(int[] arrayforsort)
-        {
-            var result = arrayforsort;
-            int temp;
-            for (int i = 0; i < result.Length; i++)
-            {
-                for (int j = i + 1; j < result.Length; j++)
-                {
-                    if (result[i] > result[j])
-                    {
-                        temp = result[i];
-                        result[i] = result[j];
-                        result[j] = temp;
-                    }
-                }
-            }
-            return result;
-        }
+        //    return result;
+        //}
+        //static int[] SortArray(int[] arrayforsort)
+        //{
+        //    var result = arrayforsort;
+        //    int temp;
+        //    for (int i = 0; i < result.Length; i++)
+        //    {
+        //        for (int j = i + 1; j < result.Length; j++)
+        //        {
+        //            if (result[i] > result[j])
+        //            {
+        //                temp = result[i];
+        //                result[i] = result[j];
+        //                result[j] = temp;
+        //            }
+        //        }
+        //    }
+        //    return result;
+        //}
         static void Main(string[] args)
         {
-            int[] array = GetArrayFromConsole(10);
-            int[] sortedarray = SortArray(array);
-            ShowArray(sortedarray, true);
-            Console.ReadKey();
+            //var array = new int[0];
+            //int num = 6;
+            //array = GetArrayFromConsole(ref num);
+            //int[] sortedarray = SortArray(array);
+            //ShowArray(sortedarray, true);
+            //Console.ReadKey();
+            int num1 = 2;
+            int num2 = 5;
+            int num3=10;
+            int num4 = 15;
+            Console.WriteLine(SumNumbers(ref num1, num2, out num3, num4));
+
+        }
+        static int SumNumbers(ref int num1, in int num2, out int num3, int num4)
+        {
+            num1 = 7;
+            num3 = num1 + num2;
+            return (num1 + num2 + num3 + num4) * num4;
         }
 
-        static void ShowArray(int[] array, bool Sorting = false)
-        {
-            int[] temp = array;
-            if (Sorting)
-            {
-                temp = SortArray(array);
-            }
-            foreach (var item in temp)
-            {
-                Console.Write(item + " ");
-            }
-        }
+        //static void ShowArray(int[] array, bool Sorting = false)
+        //{
+        //    int[] temp = array;
+        //    if (Sorting)
+        //    {
+        //        temp = SortArray(array);
+        //    }
+        //    foreach (var item in temp)
+        //    {
+        //        Console.Write(item + " ");
+        //    }
+        //}
 
         //static void SortComplexArray(int[,] arr)
         //{
