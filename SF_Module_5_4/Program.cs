@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Reflection.Metadata;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Principal;
@@ -8,13 +9,14 @@ namespace SF_Module_5_4
 {
     class Program
     {
-        //static string strpoint = "..";
+
         static void Main(string[] args)
         {
             Console.WriteLine("Напишите что-то");
             var str = Console.ReadLine();
             Console.WriteLine("Укажите глубину эха");
             var deep = int.Parse(Console.ReadLine());
+            deep = deep <= 15 ? deep : 15; //15 максимальное значение для перечисления
             Echo(str, deep);
             Console.ReadKey();
         }
@@ -25,12 +27,15 @@ namespace SF_Module_5_4
             {
                 modif = modif.Remove(0, 2);
             }
+            
+            Console.BackgroundColor = (ConsoleColor)deep;
             Console.WriteLine("..." + modif);
-            //strpoint = strpoint + "..";
+
             if (deep > 1)
             {
                 Echo(modif, deep - 1);
             }
+            Console.ResetColor();
         }
     }
 }
